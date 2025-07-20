@@ -1,0 +1,26 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER}
+    consumer:
+      group-id: tracking-service
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      properties:
+        spring.json.trusted.packages: "com.couriertracking.tracking.domain.model,com.couriertracking.courier.domain.model"
+
+logging:
+  level:
+    com.couriertracking.tracking: WARN
+    org.springframework.kafka: ERROR
+    org.springframework.data.mongodb: ERROR
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+server:
+  port: ${SERVER_PORT:8081}
