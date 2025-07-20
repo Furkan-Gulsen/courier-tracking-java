@@ -7,5 +7,4 @@ import com.couriertracking.courier.domain.model.Courier;
 
 @Repository
 public interface CourierRepository extends MongoRepository<Courier, String> {
-    // Custom query methods can be added here if needed
 }

@@ -27,7 +27,6 @@ public class HaversineDistanceStrategyTest {
         Double distance = distanceStrategy.calculateDistance(istanbul, ankara);
 
         // Then
-        // Approximate distance between Istanbul and Ankara is ~350-400 km
         // (350,000-400,000 meters)
         assertTrue(distance > 300000 && distance < 450000);
     }
@@ -47,7 +46,6 @@ public class HaversineDistanceStrategyTest {
     @Test
     void shouldCalculateShortDistances() {
         // Given
-        // Two points ~100 meters apart
         Location point1 = new Location(40.9923307, 29.1244229);
         Location point2 = new Location(40.9923307, 29.1255000);
 
@@ -68,7 +66,6 @@ public class HaversineDistanceStrategyTest {
         Double distance = distanceStrategy.calculateDistance(northOfEquator, southOfEquator);
 
         // Then
-        // ~222 km (2 degrees of latitude at the equator)
         assertTrue(distance > 210000 && distance < 230000);
     }
 
@@ -82,7 +79,6 @@ public class HaversineDistanceStrategyTest {
         Double distance = distanceStrategy.calculateDistance(westOfDateLine, eastOfDateLine);
 
         // Then
-        // Should be ~222 km (2 degrees of longitude at the equator)
         assertTrue(distance > 210000 && distance < 230000);
     }
 
